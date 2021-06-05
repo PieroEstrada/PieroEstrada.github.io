@@ -1,0 +1,271 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    color: rgba(255, 255, 255, 0.945);
+    text-align: center;
+    text-decoration: none;
+}
+
+
+/* body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    border-top: 1px solid white;
+    background: white;
+    color: #333;
+    height: 150px;
+    width: 100%;
+    font-family: 'Lobster', cursive;
+    text-align: center
+}
+
+.menu {
+    height: 80px;
+    width: 100%;
+    background: #333;
+    color: white;
+    text-align: center
+}
+
+.wrapper {
+    height: 2000px;
+    width: 100%;
+    padding-top: 20px
+}
+
+.fixed {
+    position: fixed;
+    top: 0
+} */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 150%;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+.nav-menu a {
+    padding: 0 8px 4px;
+}
+
+a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    color: #2ab186;
+    transition: background-size .3s;
+}
+
+a:hover,
+a:focus {
+    background-size: 100% 2px;
+}
+
+body {
+    background: #fff;
+    color: #666666;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+/* a:hover,
+a:active,
+a:focus {
+    color: #2dca98;
+    outline: none;
+    text-decoration: none;
+} */
+
+
+/* #nav-menu-container a:hover {
+    text-decoration: underline;
+} */
+
+
+/* Header */
+
+#header {
+    padding: 30px 0;
+    height: 92px;
+    position: fixed;
+    left: 0;
+    top: 0px;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+}
+
+#nav-menu-container {
+    background-color: rgba(255, 255, 255, 0.842);
+    border-radius: 20px;
+}
+
+.nav-menu * {
+    font-size: 20px;
+    margin: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu li {
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu>li {
+    float: left;
+}
+
+.nav-menu li:hover>ul,
+.nav-menu li.sfHover>ul {
+    display: block;
+}
+
+.nav-menu ul li {
+    min-width: 180px;
+}
+
+#nav-menu-container {
+    float: right;
+    margin: 0;
+    margin-right: 20px;
+}
+
+
+/* Entrada */
+
+#hero {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    background-image: url(media/fondo.jpeg);
+}
+
+
+/* .entrada-contenedor h1 {
+    color: aqua;
+} */
+
+#hero .hero-contenedor {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#hero-contenedor-text {
+    background-color: rgba(0, 1, 0, 0.3);
+}
+
+#hero .btn-get-started {
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 15px 10px;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+#hero .btn-get-started:hover {
+    background: #2dc997;
+    border: 2px solid #2dc997;
+    /* box-sizing: border-box; */
+}
+
+#hero h1 {
+    margin: 20px 40px 10px;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+#hero h2 {
+    color: #eee;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+}
+
+#about {
+    width: 100%;
+    height: 100vh;
+}
+
+.fila-about-container {
+    padding-top: 5%;
+    justify-content: center;
+}
+
+.columna {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto
+}
+
+#about h2 {
+    color: black;
+    /* margin: 30px 40px; */
+}
+
+#about p {
+    margin: 15% 20px;
+    color: rgba(0, 0, 0, 0.746);
+}
+
+#about-presentacion {
+    background-color: black;
+    float: left;
+}
