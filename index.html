@@ -15,16 +15,14 @@
 </head>
 
 <body>
-
-
-
     <header id="header">
         <div class="container">
+
             <nav class="navegacion" id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="#home">Inicio</a></li>
-                    <li><a href="#soy">¿Quién soy?</a></li>
-                    <li><a href="#serv">Servicios</a></li>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#about">¿Quién soy?</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
                     <li><a href="#contact">Contacto</a></li>
                 </ul>
             </nav>
@@ -44,20 +42,69 @@
 
     <main id="main">
         <section id="about">
-            <div class="container">
-                <div class="fila-about-container">
-                    <div class="columna">
-                        <h2 class="title">¿Quién soy?</h2>
-                        <p>
-                            <span id="about-presentacion">Hola, soy Piero,</span><br>soydesarrollador Front End. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iste distinctio vel modi facilis, minima esse voluptatibus quo at facere sed.
-                            Ad suscipit vero perferendis totam quidem similique dignissimos voluptas. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit maxime blanditiis nostrum adipisci impedit facilis praesentium suscipit officiis doloribus
-                            iusto laudantium, libero saepe illo voluptates minima consequatur? Ipsa, magni nostrum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eveniet. Nobis, tenetur minima illo earum perferendis est. Dolore, minima
-                            illo? Ut voluptatum illo corporis quaerat! Et ipsa odit sequi enim. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit maxime blanditiis nostrum adipisci impedit facilis praesentium suscipit officiis doloribus iusto
-                            laudantium, libero saepe illo voluptates minima consequatur? Ipsa, magni nostrum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eveniet. Nobis, tenetur minima illo earum perferendis est. Dolore, minima illo?
-                            Ut voluptatum illo corporis quaerat! Et ipsa odit sequi enim.
-                        </p>
+            <div class="fila-container">
+                <div class="columna1">
+                    <h2 class="title">¿Quién soy?</h2>
+                    <p>
+                        <span id="about-presentacion">Hello. I am Piero Estrada</span><br>Soy estudiante de la carrera de Ciencia de la Computación en la Universidad Nacional de Ingeniería de Perú. Me desempeño como desarrollador front-end y uno de mis
+                        objetivos es poder llegar a ser desarrollador full-stack. Además de la programación web, tengo conocimientos en otros lenguajes de programación, como C++, Python, Java, Ruby, PHP y también desarrollo aplicaciones móviles usando
+                        el programa Android Studio.<br>Soy una persona autodidacta, perseverante, que le gustan los retos y que se adapta rápido al trabajo en equipo. :D
+                    </p>
+                    <h3>Habilidades</h3>
+                    <div id="skills">
+                        <img src="media/logo_C++.png" alt="logo_c++">
+                        <img src="media/logo_css.png" alt="logo_css">
+                        <img src="media/logo_html.jpg" alt="logo_html">
+                        <img src="media/logo_Java.jpg" alt="logo_Java">
+                        <img src="media/logo_php.png" alt="logo_php">
+                        <img src="media/logo_Python.png" alt="logo_Python">
+                        <img src="media/logo_ruby.png" alt="logo_html">
+                        <img src="media/logo_android.png" alt="logo_android">
+                    </div>
+
+                </div>
+
+                <div class="columna2">
+                    <div id="img_programador">
+                        <img src="media/imagen_joven.jpg" alt="imagen_joven">
                     </div>
                 </div>
+            </div>
+
+        </section>
+
+        <section id="proyectos">
+            <div class="fila-container">
+                <div class="columna1">
+                    <h2 class="title">Algunos de mis proyectos</h2>
+                    <div id="img-proyecto1">
+                        <img src="media/captura_tuvoto.png" alt="App Tu Voto">
+                    </div>
+
+                </div>
+
+                <div class="columna2">
+                    <h3 class="nombre-proyecto">Tu Voto</h3>
+                    <p id="proyecto1-descripcion">
+                        ¿No sabes por quién votar? ¡Para de sufrir! ¡Esta es la app que estabas buscando!<br>En TuVoto podrás encontrar toda la información precisa y necesaria para tomar una mejor decisión en estas elecciones.<br><br>App hecha en Android
+                        Studio para informar a la población sobre las propuestas, hoja de vida y denuncias, si es que tuvieran, de los candidatos a la Presidencia de la República del Perú.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="fila-container">
+                <h2>Contacto</h2>
+
+                <body class="contactBody">
+                    <form action="enviar.php" method="POST" class="form_contact">
+                        <input type="text" class="name entry" name="nombre" placeholder="Tu nombre" required>
+                        <input type="text" class="email entry" name="correo" placeholder="Email" required>
+                        <textarea class="message entry" placeholder="mensaje" required></textarea>
+                        <button class="submit entry" onclick="">Enviar</button>
+                    </form>
+                </body>
             </div>
         </section>
     </main>
