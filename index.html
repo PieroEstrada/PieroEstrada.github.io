@@ -21,7 +21,6 @@
             --card-bg: rgba(17, 34, 64, 0.6);
         }
 
-        /* ADDED: Custom text selection style */
         ::selection {
             background-color: var(--accent);
             color: var(--dark-navy);
@@ -119,16 +118,6 @@
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 0 30px rgba(0, 245, 196, 0.15);
         }
-        .card .glowing-border {
-            position: absolute;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            border-radius: 0.75rem;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            background: radial-gradient(400px circle at var(--x) var(--y), var(--accent-glow), transparent 40%);
-        }
-        .card:hover .glowing-border { opacity: 1; }
 
         .fade-in-section { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
@@ -154,6 +143,23 @@
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
         .fade-in-section.is-visible .stagger-in > * { opacity: 1; transform: translateY(0); }
+
+        /* ADDED: Floating animation for projects */
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0.5deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(-0.5deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0.5deg);
+            }
+        }
+
+        .floating-project {
+            animation: float 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="antialiased leading-relaxed">
@@ -219,7 +225,6 @@
                     <div class="md:col-span-2 flex items-center justify-center" style="transition-delay: 200ms;">
                          <div class="w-64 h-64 rounded-lg flex items-center justify-center p-4 card" data-tilt>
                             <p class="text-8xl font-bold neon-text">PE</p>
-                             <div class="glowing-border"></div>
                          </div>
                     </div>
                 </div>
@@ -228,10 +233,10 @@
             <section id="tecnologias" class="py-24 fade-in-section">
                 <h2 class="section-heading"><span class="section-heading-inner neon-subtitle">Tecnologías y Habilidades</span></h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center stagger-in">
-                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 100ms;"><h3 class="font-bold text-lg text-highlight">Desarrollo Web</h3><p class="text-sm mt-2 text-[var(--light-slate)]">PHP, JavaScript, HTML5, CSS3, jQuery, AJAX, Bootstrap, Ruby</p><div class="glowing-border"></div></div>
-                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 200ms;"><h3 class="font-bold text-lg text-highlight">Bases de Datos</h3><p class="text-sm mt-2 text-[var(--light-slate)]">MySQL, MongoDB, PostgreSQL</p><div class="glowing-border"></div></div>
-                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 300ms;"><h3 class="font-bold text-lg text-highlight">Data Science & BI</h3><p class="text-sm mt-2 text-[var(--light-slate)]">Python (Pandas, Numpy), Power BI</p><div class="glowing-border"></div></div>
-                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 400ms;"><h3 class="font-bold text-lg text-highlight">Móvil y Otros</h3><p class="text-sm mt-2 text-[var(--light-slate)]">Kotlin, Android Studio, Java, C++, OpenCV</p><div class="glowing-border"></div></div>
+                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 100ms;"><h3 class="font-bold text-lg text-highlight">Desarrollo Web</h3><p class="text-sm mt-2 text-[var(--light-slate)]">PHP, JavaScript, HTML5, CSS3, jQuery, AJAX, Bootstrap, Ruby</p></div>
+                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 200ms;"><h3 class="font-bold text-lg text-highlight">Bases de Datos</h3><p class="text-sm mt-2 text-[var(--light-slate)]">MySQL, MongoDB, PostgreSQL</p></div>
+                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 300ms;"><h3 class="font-bold text-lg text-highlight">Data Science & BI</h3><p class="text-sm mt-2 text-[var(--light-slate)]">Python (Pandas, Numpy), Power BI</p></div>
+                    <div class="card p-6 rounded-lg" data-tilt style="transition-delay: 400ms;"><h3 class="font-bold text-lg text-highlight">Móvil y Otros</h3><p class="text-sm mt-2 text-[var(--light-slate)]">Kotlin, Android Studio, Java, C++, OpenCV</p></div>
                 </div>
             </section>
 
@@ -239,55 +244,48 @@
                 <h2 class="section-heading"><span class="section-heading-inner neon-subtitle">Proyectos Destacados</span></h2>
                 <div class="space-y-24">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                        <div class="md:col-span-7 card rounded-lg overflow-hidden group" data-tilt>
-                            <img src="https://placehold.co/600x400/0a192f/00f5c4?text=Dashboard+ERP" alt="Dashboard del ERP" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
-                             <div class="glowing-border"></div>
+                        <div class="md:col-span-7 card rounded-lg overflow-hidden group floating-project" data-tilt>
+                            <img src="https://placehold.co/600x400/0a192f/00f5c4?text=Dashboard+ERP" alt="Dashboard del ERP" class="w-full h-auto transition-transform duration-500">
                         </div>
                         <div class="md:col-span-5 text-right z-10">
-                            <p class="text-[var(--accent)] text-sm">Proyecto Profesional</p>
+                            <p class="neon-text text-sm">Proyecto Profesional</p>
                             <h3 class="text-2xl font-bold text-[var(--lightest-slate)] mb-4 neon-subtitle">Plataforma ERP a Medida</h3>
                             <div class="p-6 rounded-lg shadow-lg text-left card">
                                 <p class="text-sm text-[var(--lightest-slate)]">Desarrollo integral de un sistema <span class="text-highlight">ERP</span> para automatizar y gestionar procesos de negocio, desde logística y RRHH hasta informes técnicos y dashboard gerenciales.</p>
-                                <div class="glowing-border"></div>
                             </div>
                             <p class="text-xs text-[var(--slate)] mt-4 space-x-4">PHP | MySQL | JavaScript | Bootstrap | AJAX</p>
-                            <div class="flex justify-end mt-4"><a href="#" class="social-icon" title="Caso de estudio (privado)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div>
+                            <div class="flex justify-end mt-4"><a href="#" class="social-icon" title="Caso de estudio (privado)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div>
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                          <div class="md:col-span-5 text-left md:order-last z-10">
-                            <p class="text-[var(--accent)] text-sm">Proyecto Personal</p>
+                         <div class="md:col-span-5 text-left md:order-last z-10">
+                            <p class="neon-text text-sm">Proyecto Personal</p>
                             <h3 class="text-2xl font-bold text-[var(--lightest-slate)] mb-4 neon-subtitle">Sistema de Gestión para Consultores</h3>
                             <div class="p-6 rounded-lg shadow-lg text-left card">
                                 <p class="text-sm text-[var(--lightest-slate)]">Plataforma web para la gestión de negocio de consultores de ventas, incluyendo <span class="text-highlight">inventario</span>, <span class="text-highlight">compras</span>, <span class="text-highlight">ventas</span>, y un dashboard de métricas.</p>
-                                <div class="glowing-border"></div>
                             </div>
                             <p class="text-xs text-[var(--slate)] mt-4 space-x-4">PHP | MySQL | JavaScript | Seguridad Web</p>
                             <div class="flex justify-start mt-4 space-x-4">
-                                 <a href="https://github.com/PieroEstrada" target="_blank" class="social-icon" title="Ver en GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
-                                 <a href="#" class="social-icon" title="Ver demo"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                                 <a href="https://github.com/PieroEstrada" target="_blank" class="social-icon" title="Ver en GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                                 <a href="#" class="social-icon" title="Ver demo"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
                             </div>
-                          </div>
-                        <div class="md:col-span-7 card rounded-lg overflow-hidden md:order-first group" data-tilt>
-                            <img src="https://placehold.co/600x400/0a192f/00f5c4?text=Sistema+de+Gesti%C3%B3n" alt="Sistema de Gestión" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
-                             <div class="glowing-border"></div>
+                        </div>
+                        <div class="md:col-span-7 card rounded-lg overflow-hidden md:order-first group floating-project" data-tilt>
+                            <img src="https://placehold.co/600x400/0a192f/00f5c4?text=Sistema+de+Gesti%C3%B3n" alt="Sistema de Gestión" class="w-full h-auto transition-transform duration-500">
                         </div>
                     </div>
-                     <!-- ADDED: New project from old portfolio -->
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                        <div class="md:col-span-7 card rounded-lg overflow-hidden group" data-tilt>
-                            <img src="https://placehold.co/600x400/0a192f/00f5c4?text=App+Tu+Voto" alt="App Tu Voto" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
-                             <div class="glowing-border"></div>
+                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                        <div class="md:col-span-7 card rounded-lg overflow-hidden group floating-project" data-tilt>
+                           <img src="media/captura_tuvoto.png" alt="App Tu Voto" class="w-full h-auto transition-transform duration-500">
                         </div>
                         <div class="md:col-span-5 text-right z-10">
                             <p class="text-[var(--accent)] text-sm">Proyecto Académico/Móvil</p>
                             <h3 class="text-2xl font-bold text-[var(--lightest-slate)] mb-4 neon-subtitle">App Informativa "Tu Voto"</h3>
                             <div class="p-6 rounded-lg shadow-lg text-left card">
                                 <p class="text-sm text-[var(--lightest-slate)]">Aplicación para <span class="text-highlight">Android</span> que proporciona información sobre candidatos, ayudando a los votantes a tomar decisiones informadas para las elecciones presidenciales de Perú.</p>
-                                <div class="glowing-border"></div>
                             </div>
                             <p class="text-xs text-[var(--slate)] mt-4 space-x-4">Android Studio | Java | Kotlin</p>
-                            <div class="flex justify-end mt-4"><a href="#" class="social-icon" title="Ver en GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></div>
+                            <div class="flex justify-end mt-4"><a href="#" class="social-icon" title="Ver en GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></div>
                         </div>
                     </div>
                 </div>
@@ -306,7 +304,6 @@
                         <h3 class="flex items-center mb-1 text-lg font-semibold text-[var(--lightest-slate)]">Full Stack Developer <span class="bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Actual</span></h3>
                         <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Nov. 2023 – Oct. 2025 | E-SYSTEM TIC PERU SAC</time>
                         <p class="text-base font-normal text-[var(--lightest-slate)]">Lideré el desarrollo de una plataforma <span class="text-highlight">ERP</span> a medida, construyendo módulos clave para Logística, RRHH, e Inspecciones ITSE.</p>
-                        <div class="glowing-border"></div>
                     </div>
                     <div class="ml-8 card p-6 rounded-lg">
                         <span class="absolute flex items-center justify-center w-8 h-8 bg-[var(--dark-navy)] rounded-full -left-4 ring-4 ring-[var(--dark-navy)] border-2 border-[var(--accent)]">
@@ -315,7 +312,6 @@
                         <h3 class="text-lg font-semibold text-[var(--lightest-slate)]">Desarrollador Web</h3>
                         <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Marzo 2022 – Julio 2022 | E-SYSTEM TIC PERU SAC</time>
                         <p class="text-base font-normal text-[var(--lightest-slate)]">Desarrollé un sistema de gestión de almacén con <span class="text-highlight">PHP y MySQL</span> para optimizar procesos logísticos.</p>
-                        <div class="glowing-border"></div>
                     </div>
                 </div>
             </section>
@@ -336,10 +332,10 @@
     <footer class="py-6 text-center text-[var(--slate)] text-sm">
         <div class="flex justify-center space-x-6 mb-4">
              <a href="https://github.com/PieroEstrada" target="_blank" class="social-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
              </a>
              <a href="https://www.linkedin.com/in/piero-estrada-2305/" target="_blank" class="social-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
              </a>
         </div>
         <p>Diseñado y construido por Piero Estrada.</p>
@@ -456,16 +452,6 @@
         }
         initBlobs();
 
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
-            });
-        });
-
         // --- Standard Scripts ---
         VanillaTilt.init(document.querySelectorAll("[data-tilt]"), { max: 8, speed: 400, glare: true, "max-glare": 0.1 });
         
@@ -522,3 +508,4 @@
 
 </body>
 </html>
+
